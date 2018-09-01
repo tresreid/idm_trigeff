@@ -9,14 +9,15 @@ args= parser.parse_args()
 
 ifile = args.input
 if ifile == 'test':
-	f1 = ROOT.TFile("../Firefighter/washAOD/trestestlong2.root")
-	ofile = "output_test.pdf"%ifile
+	f1 = ROOT.TFile("../Firefighter/washAOD/output/output_Mchi-60_dMchi-20_100mm.root")
+	ofile = "output_test.pdf"
+	t1 = f1.Get("TRIG_dsa2/trigEffiForMetTrack")
+	t2 = f1.Get("TRIG_dsa2/trigEffiForMetTrackFired")
 else:
 	ofile = "output/trigeff_%smm.pdf"%ifile
 	f1 = ROOT.TFile("../Firefighter/washAOD/output/output_%smm.root"%ifile)
-
-t1 = f1.Get("TRIG_dsa2/trigEffiForMetTrack")
-t2 = f1.Get("TRIG_dsa2/trigEffiForMetTrackFired")
+	t1 = f1.Get("TRIG_dsa2/trigEffiForMetTrack")
+	t2 = f1.Get("TRIG_dsa2/trigEffiForMetTrackFired")
 hist_sel_met = ROOT.TH1F("histselmet","Met",100,0,300)
 hist_sel_jetpt = ROOT.TH1F("histseljetpt","leading jet pt",100,0,500)
 hist_sel_jeteta = ROOT.TH1F("histseljeteta","leading jet eta",20,-6,6)
@@ -153,7 +154,8 @@ hist_eff_mupt.SetTitle("leading mu pt")
 hist_eff_mueta.SetTitle("leading mu eta")
 hist_eff_muphi.SetTitle("leading mu phi")
 
-erf_met = ROOT.TF1("erf_met","[0]*TMath::Erf((x-125-[1]))",0,300) 
+erf_met = ROOT.TF1("erf_met","TMath::Erf((x-100-[0])*[1])*1",50,170) 
+erf_met.SetParameters(0.5,2.0)
 
 pp = ROOT.TCanvas("pp","pp",800,800)
 pp.SetLogy(0)
