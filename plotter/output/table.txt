@@ -1,0 +1,32 @@
+met: Mchi-5p25_dMchi-0p5_1mm x98=154 x100=221 plateau=0.93968 pass=1081.0 eff=0.7254
+met no mu: Mchi-5p25_dMchi-0p5_1mm x98=154 x100=221 plateau=0.93612 pass=722.0 eff=0.5307
+met: Mchi-5p25_dMchi-0p5_10mm x98=158 x100=237 plateau=0.97175 pass=1063.0 eff=0.7088
+met no mu: Mchi-5p25_dMchi-0p5_10mm x98=158 x100=237 plateau=0.97700 pass=726.0 eff=0.5300
+met: Mchi-5p25_dMchi-0p5_100mm x98=156 x100=229 plateau=0.93082 pass=1056.0 eff=0.7499
+met no mu: Mchi-5p25_dMchi-0p5_100mm x98=152 x100=221 plateau=0.91626 pass=726.0 eff=0.5673
+met: Mchi-5p25_dMchi-0p5_1000mm x98=161 x100=241 plateau=0.97014 pass=1096.0 eff=0.7814
+met no mu: Mchi-5p25_dMchi-0p5_1000mm x98=159 x100=236 plateau=0.96802 pass=870.0 eff=0.7088
+met: Mchi-6p0_dMchi-2p0_1mm x98=154 x100=222 plateau=0.94665 pass=877.0 eff=0.5372
+met no mu: Mchi-6p0_dMchi-2p0_1mm x98=154 x100=222 plateau=0.95167 pass=467.0 eff=0.3891
+met: Mchi-6p0_dMchi-2p0_10mm x98=160 x100=243 plateau=1.00875 pass=944.0 eff=0.5822
+met no mu: Mchi-6p0_dMchi-2p0_10mm x98=150 x100=208 plateau=0.94691 pass=464.0 eff=0.3905
+met: Mchi-6p0_dMchi-2p0_100mm x98=158 x100=240 plateau=0.95018 pass=1093.0 eff=0.6720
+met no mu: Mchi-6p0_dMchi-2p0_100mm x98=163 x100=251 plateau=0.98745 pass=551.0 eff=0.4618
+met: Mchi-6p0_dMchi-2p0_1000mm x98=160 x100=240 plateau=0.99483 pass=1370.0 eff=0.8361
+met no mu: Mchi-6p0_dMchi-2p0_1000mm x98=156 x100=228 plateau=0.96393 pass=996.0 eff=0.8043
+met: Mchi-52p5_dMchi-5_1mm x98=156 x100=228 plateau=0.96698 pass=11846.0 eff=8.1434
+met no mu: Mchi-52p5_dMchi-5_1mm x98=157 x100=230 plateau=0.96727 pass=6445.0 eff=6.8088
+met: Mchi-52p5_dMchi-5_10mm x98=156 x100=232 plateau=0.96443 pass=11989.0 eff=8.2418
+met no mu: Mchi-52p5_dMchi-5_10mm x98=157 x100=231 plateau=0.96487 pass=6502.0 eff=6.8782
+met: Mchi-52p5_dMchi-5_100mm x98=158 x100=235 plateau=0.97755 pass=12132.0 eff=8.3646
+met no mu: Mchi-52p5_dMchi-5_100mm x98=157 x100=233 plateau=0.97512 pass=6531.0 eff=6.8610
+met: Mchi-52p5_dMchi-5_1000mm x98=156 x100=230 plateau=0.94820 pass=12400.0 eff=8.5738
+met no mu: Mchi-52p5_dMchi-5_1000mm x98=156 x100=225 plateau=0.94876 pass=7044.0 eff=7.1964
+met: Mchi-60_dMchi-20_1mm x98=159 x100=238 plateau=0.96348 pass=12843.0 eff=6.2166
+met no mu: Mchi-60_dMchi-20_1mm x98=160 x100=241 plateau=0.95835 pass=5751.0 eff=5.2172
+met: Mchi-60_dMchi-20_10mm x98=159 x100=240 plateau=0.97890 pass=13928.0 eff=6.4364
+met no mu: Mchi-60_dMchi-20_10mm x98=159 x100=237 plateau=0.97126 pass=6294.0 eff=5.4445
+met: Mchi-60_dMchi-20_100mm x98=162 x100=250 plateau=0.98784 pass=14807.0 eff=6.8663
+met no mu: Mchi-60_dMchi-20_100mm x98=156 x100=232 plateau=0.95923 pass=6390.0 eff=5.4746
+met: Mchi-60_dMchi-20_1000mm x98=159 x100=241 plateau=0.97029 pass=16520.0 eff=7.6834
+met no mu: Mchi-60_dMchi-20_1000mm x98=157 x100=231 plateau=0.96333 pass=7737.0 eff=6.1253
