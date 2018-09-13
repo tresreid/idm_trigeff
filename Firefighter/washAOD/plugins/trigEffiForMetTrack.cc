@@ -49,7 +49,10 @@ trigEffiForMetTrack::fillDescriptions(edm::ConfigurationDescriptions& descriptio
 void
 trigEffiForMetTrack::beginJob()
 {
+  muTotalTrackT_ = fs->make<TTree>("trigEffiForMetTrackTotal", "");
+  muTotalTrackT_->Branch("sel", &sel_, "sel/O");
   muTrackT_ = fs->make<TTree>("trigEffiForMetTrack", "");
+  muTrackT_->Branch("sel", &sel_, "sel/O");
   muTrackT_->Branch("fired", &fired_, "fired/O");
   muTrackT_->Branch("mu_pt",   &mupt_);
   muTrackT_->Branch("mu_eta",  &mueta_);
@@ -181,7 +184,7 @@ trigEffiForMetTrack::analyze(const edm::Event& iEvent, const edm::EventSetup& iS
         return lhs->pt() > rhs->pt();
       });
 
-
+sel_=true;
 
 
 //  // MC match
@@ -261,8 +264,8 @@ trigEffiForMetTrack::analyze(const edm::Event& iEvent, const edm::EventSetup& iS
              }
          }
      }
-     else { return;}
-     if (jet1pt < 30.0) {return;}
+     else { sel_ = false;}
+     if (jet1pt < 30.0) {sel_ = false;}
  
     // if (excludePFMuons_) {
     //     for (auto const & j : *pfCandidates) {
@@ -302,9 +305,13 @@ trigEffiForMetTrack::analyze(const edm::Event& iEvent, const edm::EventSetup& iS
   //jet1pt = jetpt_.front();
   //jet1eta = jeteta_.front();
   //jet1phi = jetphi_.front();
+  muTotalTrackT_->Fill();
+  muTotalTrackT_->SetEntries();
+  if (sel_) {
   muTrackT_->Fill();
   muTrackT_->SetEntries();
   if (fired_) { muFiredTrackT_->Fill();muFiredTrackT_->SetEntries();}
+	}
   return;
 }
 

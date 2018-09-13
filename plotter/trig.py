@@ -23,19 +23,21 @@ def get_x98(p0,p1,p2,p3,eff):
 
 ifile = args.input
 if ifile == 'test':
-	f1 = ROOT.TFile("../Firefighter/washAOD/output/older/output_Mchi-60_dMchi-20_100mm.root")
+	f1 = ROOT.TFile("~/nobackup/output/output_Mchi-60_dMchi-20_100mm.root")
 	ofile = "output_test.pdf"
 	t1 = f1.Get("TRIG_dsa2/trigEffiForMetTrack")
 	t2 = f1.Get("TRIG_dsa2/trigEffiForMetTrackFired")
+	dy_range = 250
 else:
 	ofile = "output/trigeff_%s.pdf"%ifile
-	f1 = ROOT.TFile("../Firefighter/washAOD/output/output_%s.root"%ifile)
+	f1 = ROOT.TFile("~/nobackup/output/output_%s.root"%ifile)
 	t1 = f1.Get("TRIG_dsa2/trigEffiForMetTrack")
 	t2 = f1.Get("TRIG_dsa2/trigEffiForMetTrackFired")
 
 use_dybins = False
 #dynamic_ranges = [[180,190,190,190],[240,240,220,180],[250,195,250,180],[198,200,200,230]]
-dynamic_ranges = [[200,200,200,200],[240,240,220,180],[250,195,250,180],[198,200,200,230]]
+#dynamic_good = [[F,F,F,],[240,240,220,200],[250,200,250,200],[198,200,200,230]]
+dynamic_ranges = [[250,250,250,250],[240,240,250,250],[250,250,250,250],[250,250,250,250]]
 #dynamic_rangeslow = 100 #[[100,0,0,0],[0,0,0,0],[0,0,100,0],[0,0,0,0]]
 renamemass = ['five','six','fifty','sixty']
 renamelife = ['xmm','xxmm','xxxmm','xxxxmm']
@@ -235,8 +237,12 @@ hist_eff_mupt.SetTitle("leading mu pt")
 hist_eff_mueta.SetTitle("leading mu eta")
 hist_eff_muphi.SetTitle("leading mu phi")
 
-erf_met = ROOT.TF1("erf_met","[2]+[3]*TMath::Erf((x-[1])/[0])",100,dy_range) 
+erf_met = ROOT.TF1("erf_met","[2]+[3]*TMath::Erf((x-[1])/[0])",125,dy_range) 
+#erf_met.SetParameters(30,125,100,0.5)
 erf_met.SetParameters(30,125,100,0.5)
+erf_met.SetParLimits(1,120,130)
+erf_met.SetParLimits(3,.40,.60)
+erf_met.SetParLimits(2,.40,.60)
 
 pp = ROOT.TCanvas("pp","pp",800,800)
 t1 = ROOT.TText(0.5,0.5,"%s"%(ifile))

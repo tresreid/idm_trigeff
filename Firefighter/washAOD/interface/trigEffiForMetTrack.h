@@ -85,6 +85,7 @@ class trigEffiForMetTrack :
     std::string trigPath_;
     HLTConfigProvider hltConfig_;
     bool fired_;
+    bool sel_;
 
     std::vector<float> mupt_;
     std::vector<float> mueta_;
@@ -103,6 +104,7 @@ class trigEffiForMetTrack :
 
     TTree *muTrackT_;
     TTree *muFiredTrackT_;
+    TTree *muTotalTrackT_;
 };
 
 #endif
