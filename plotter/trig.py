@@ -1,6 +1,7 @@
 import ROOT
 import argparse
 from ROOT import TMath
+import csv
 ROOT.gROOT.SetBatch(True)
 
 parser = argparse.ArgumentParser()
@@ -30,9 +31,10 @@ if ifile == 'test':
 	dy_range = 250
 else:
 	ofile = "output/trigeff_%s.pdf"%ifile
-	f1 = ROOT.TFile("~/nobackup/output/output_%s.root"%ifile)
+	f1 = ROOT.TFile("~/nobackup/trigeff_output_1mm/output_%s.root"%ifile)
 	t1 = f1.Get("TRIG_dsa2/trigEffiForMetTrack")
 	t2 = f1.Get("TRIG_dsa2/trigEffiForMetTrackFired")
+	t3 = f1.Get("TRIG_dsa2/trigEffiForMetTrackTotal")
 
 use_dybins = False
 #dynamic_ranges = [[180,190,190,190],[240,240,220,180],[250,195,250,180],[198,200,200,230]]
@@ -70,6 +72,10 @@ if '1000mm' in ifile:
 	dy_range = massdy_range[3]	
 	rename += renamelife[3]
 
+hist_total_events = ROOT.TH1F("total","tot",3,0,3)
+for entry in t3:
+	total =entry.sel
+	hist_total_events.Fill(total) 
 
 xbins = [2.7**(i/10.0) for i in range(0,57,1)]
 if use_dybins:
@@ -269,7 +275,7 @@ x_val100 = get_x98(met_p0,met_p1,met_p2,met_p3,100)
 print "parameters ", met_p0, met_p1, met_p2, met_p3
 print "plateau = ", plateau, " x98= ", x_val
 trigpass_met = float(hist_fired_met.GetEntries())
-trigeffi_met = 100*trigpass_met/float(hist_sel_met.GetEntries())
+trigeffi_met = 100*trigpass_met/float(hist_total_events.GetEntries())
 
 pp.Update()
 ps = pp.GetPrimitive("stats")
@@ -486,9 +492,13 @@ hist_eff_met.Write("hist_eff_met-%s"%ifile)
 #hist_eff_metnomu.Write("hist_eff_metnomu-%s"%ifile)
 #tree = ROOT.TTree("valuesmet%s"%rename,"values")
 
-table = open("table.txt","a+")
-table.write("met: %s x98=%s x100=%s plateau=%.5f pass=%s eff=%.4f\n"%(ifile,x_val,x_val100,plateau,trigpass_met,trigeffi_met))
+table = open("trigger_eff_table.txt","a+")
+table.write("met: %s x98=%s x100=%s plateau=%.5f pass=%s eff=%.4%%f\n"%(ifile,x_val,x_val100,plateau,trigpass_met,trigeffi_met))
 #table.write("met no mu: %s x98=%s x100=%s plateau=%.5f pass=%s eff=%.4f\n"%(ifile,x_valnomu,x_val100nomu,plateaunomu,trigpass_nomu,trigeffi_nomu))
 table.close()
+
+with open('trigger_eff_table.csv',mode='a+') as table:
+	table_writer = csv.writer(table, delimiter=',')
+	table_writer.writerow([ifile,x_val,x_val100,plateau,trigpass_met,trigeffi_met])
 
 

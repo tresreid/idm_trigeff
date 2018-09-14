@@ -1,0 +1,4 @@
+met: Mchi-5p25_dMchi-0p5_1mm x98=159 x100=245 plateau=0.97935 pass=1081.0 eff=%0.413884
+met: Mchi-6p0_dMchi-2p0_1mm x98=162 x100=255 plateau=0.99070 pass=877.0 eff=%0.307233
+met: Mchi-52p5_dMchi-5_1mm x98=165 x100=269 plateau=0.99454 pass=11846.0 eff=%6.095503
+met: Mchi-60_dMchi-20_1mm x98=164 x100=265 plateau=0.98319 pass=12843.0 eff=%4.704568
