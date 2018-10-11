@@ -6,9 +6,11 @@
 #include "Firefighter/washAOD/interface/trigEffiForMuTrack.h"
 #include "Firefighter/washAOD/interface/trigEffiForMetTrack.h"
 #include "Firefighter/washAOD/interface/trigSelfEffiForMuTrack.h"
+#include "Firefighter/washAOD/interface/metnomustudy.h"
 
 DEFINE_FWK_MODULE(genTuplizer);
 DEFINE_FWK_MODULE(recoEffiForMuTrack);
 DEFINE_FWK_MODULE(trigEffiForMuTrack);
 DEFINE_FWK_MODULE(trigEffiForMetTrack);
+DEFINE_FWK_MODULE(metnomustudy);
 DEFINE_FWK_MODULE(trigSelfEffiForMuTrack);

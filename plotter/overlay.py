@@ -183,15 +183,15 @@ for  mass,split in [('5p25','0p5'),('6p0','2p0'),('52p5','5'),('60','20')]:
 	for life in [1,10,100,1000]:
 		hists['Mchi-%s_dMchi-%s_%smm'%(mass,split,life)] = rfile.Get("hist_eff_met-Mchi-%s_dMchi-%s_%smm"%(mass,split,life))
 		hists['Mchi-%s_dMchi-%s_%smm'%(mass,split,life)].GetFunction('erf_met').Delete()
-		hists['nomuMchi-%s_dMchi-%s_%smm'%(mass,split,life)] = rfile.Get("hist_eff_metnomu-Mchi-%s_dMchi-%s_%smm"%(mass,split,life))
-		hists['nomuMchi-%s_dMchi-%s_%smm'%(mass,split,life)].GetFunction('erf_met').Delete()
+	#	hists['nomuMchi-%s_dMchi-%s_%smm'%(mass,split,life)] = rfile.Get("hist_eff_metnomu-Mchi-%s_dMchi-%s_%smm"%(mass,split,life))
+	#	hists['nomuMchi-%s_dMchi-%s_%smm'%(mass,split,life)].GetFunction('erf_met').Delete()
 
 
 pp = ROOT.TCanvas('pp','canv',800,800)
 pp.Print("overlay.pdf(")
 
 table = {}
-templates = ['Mchi-5p25_dMchi-0p5_{0}mm','Mchi-6p0_dMchi-2p0_{0}mm','Mchi-52p5_dMchi-5_{0}mm','Mchi-60_dMchi-20_{0}mm','nomuMchi-5p25_dMchi-0p5_{0}mm','nomuMchi-6p0_dMchi-2p0_{0}mm','nomuMchi-52p5_dMchi-5_{0}mm','nomuMchi-60_dMchi-20_{0}mm']
+templates = ['Mchi-5p25_dMchi-0p5_{0}mm','Mchi-6p0_dMchi-2p0_{0}mm','Mchi-52p5_dMchi-5_{0}mm','Mchi-60_dMchi-20_{0}mm']#,'nomuMchi-5p25_dMchi-0p5_{0}mm','nomuMchi-6p0_dMchi-2p0_{0}mm','nomuMchi-52p5_dMchi-5_{0}mm','nomuMchi-60_dMchi-20_{0}mm']
 lifes = ['1','10','100','1000']
 for template in templates:
 	leg = ROOT.TLegend(.7,.05,.85,.15)
@@ -211,7 +211,7 @@ for life in lifes:
 	drawall(hists[templates[0].format(life)],hists[templates[1].format(life)],hists[templates[2].format(life)],hists[templates[3].format(life)],None,life+'mm',leglist,pp,0,leg,True)
 	pp.Print("overlay.pdf")
 	pp.Clear()
-	drawall(hists[templates[4].format(life)],hists[templates[5].format(life)],hists[templates[6].format(life)],hists[templates[7].format(life)],None,life+'mm',leglist,pp,0,leg,True)
+	#drawall(hists[templates[4].format(life)],hists[templates[5].format(life)],hists[templates[6].format(life)],hists[templates[7].format(life)],None,life+'mm',leglist,pp,0,leg,True)
 	pp.Print("overlay.pdf")
 	pp.Clear()
 

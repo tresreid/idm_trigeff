@@ -9,7 +9,7 @@ lifelist = [1]
 #lifelist = [1,10,100,1000]
 for mass in masslist:
 	for life in lifelist:
-		cmdx = "cmsRun python/tuplizer_cfg.py year=2017 inputFiles_load=data/iDM/{0}_{1}mm.txt outputFile=~/nobackup/trigeff_output_1mm/output_{0}_{1}mm.root".format(mass,life)
+		cmdx = "cmsRun python/tuplizer_cfg.py year=2017 inputFiles_load=data/iDM/{0}_{1}mm.txt outputFile=~/nobackup/metnomustudy/output_{0}_{1}mm.root".format(mass,life)
 		print cmdx
 		process = subprocess.Popen(cmdx,shell=True, stdout=subprocess.PIPE)
 		for line in iter(process.stdout.readline,b''):

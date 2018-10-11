@@ -61,6 +61,7 @@ trigEffiForMetTrack::beginJob()
   muTrackT_->Branch("mu1_eta",  &mu1eta);
   muTrackT_->Branch("mu1_phi",  &mu1phi);
   muTrackT_->Branch("met_met",  &met);
+  muTrackT_->Branch("met_gen",  &genmet);
   muTrackT_->Branch("met_nomu",  &metnomu);
   muTrackT_->Branch("jet1_pt",  &jet1pt);
   muTrackT_->Branch("jet1_eta",  &jet1eta);
@@ -75,6 +76,7 @@ trigEffiForMetTrack::beginJob()
   muFiredTrackT_->Branch("mu1_eta",  &mu1eta);
   muFiredTrackT_->Branch("mu1_phi",  &mu1phi);
   muFiredTrackT_->Branch("met_met",  &met);
+  muFiredTrackT_->Branch("met_gen",  &genmet);
   muFiredTrackT_->Branch("met_nomu",  &metnomu);
   muFiredTrackT_->Branch("jet1_pt",  &jet1pt);
   muFiredTrackT_->Branch("jet1_eta",  &jet1eta);
@@ -170,10 +172,15 @@ trigEffiForMetTrack::analyze(const edm::Event& iEvent, const edm::EventSetup& iS
   for( std::vector<reco::PFMET>::const_iterator m = recometTrackHandle_->begin(); m != recometTrackHandle_->end(); ++m) {
              double mpt = m->pt();
 	     if( mpt > met){ met = mpt;}
+		metnomu = m->muonEt();
 }
-	
-     if (muTrackHandle_->empty()) {metnomu = met;}
-	else{ metnomu=-1;}
+  genmet = 0.0;
+  for( std::vector<reco::GenMET>::const_iterator gm = metTrackHandle_->begin(); gm != metTrackHandle_->end(); ++gm) {
+             double gmpt = gm->pt();
+	     if( gmpt > genmet){ genmet = gmpt;}
+}	
+ //    if (muTrackHandle_->empty()) {metnomu = met->muonEt();}
+//	else{ metnomu=-1;}
   // sort mu key by pT
   vector<int> muTrackIdx{};
   for (size_t i(0); i!=muTrackHandle_->size(); ++i) muTrackIdx.push_back(i);

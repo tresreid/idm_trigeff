@@ -97,6 +97,9 @@ process.TRIG_dsa_DL2Mu23CosmicSeedNoL2 = trigEffiForMuTrack.clone(trigPath = cms
 from Firefighter.washAOD.trigEffiForMetTrack_cfi import trigEffiForMetTrack
 ### 2017
 process.TRIG_dsa2 = trigEffiForMetTrack.clone()
+from Firefighter.washAOD.metnomustudy_cfi import metnomustudy
+### 2017
+process.TRIG_metnomustudy = metnomustudy.clone()
 
 ## trigger efficiency itself
 from Firefighter.washAOD.trigSelfEffiForMuTrack_cfi import trigSelfEffiForMuTrack
@@ -118,6 +121,7 @@ if options.year == 2017:
                          #+ process.RECO_gbm
                          #+ process.TRIG_dsa
                          + process.TRIG_dsa2
+                         + process.TRIG_metnomustudy
                          #+ process.TRIGself_dsa
                          )
 

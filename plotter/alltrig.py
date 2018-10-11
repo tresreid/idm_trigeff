@@ -3,6 +3,7 @@ import os,sys
 
 os.system("rm trigger_eff_table.csv")
 os.system("rm trigger_eff_table.txt")
+os.system("rm trigeff.root")
 os.system('echo "name,x98,x100,plateau,number passing trigger, trigger efficiency in % (from all events) " > trigger_eff_table.csv')
 
 
